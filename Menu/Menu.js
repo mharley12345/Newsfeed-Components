@@ -55,12 +55,7 @@ function sideMenu(navItems) {
   menuButton.addEventListener('click', () => {
     menu.classList.toggle('menu--open')
   })
-
-  document.addEventListener('click', event =>{
-    if (menu.classList.contains('menu--open') === false) return
-    else if ((event.target === menu) || (event.target === uList) || (event.target.tagName === 'LI') || (event.target === menuButton)) return
-    else menu.classList.toggle('menu--open') 
-  })
+ 
 
   return menu
 }
@@ -75,7 +70,7 @@ TweenMax.to(".menu-button", 5, {x:1220, y:4, scale:2, skewX:45, rotation:180});
 setTimeout(() => {                                                                                  
   TweenMax.to(".menu-button", 5, {x:46, y:4, scale:2, skewX:45, rotation:180});                    
                                                                                                                                             
-}, 14000);                                                                                        
+}, 13000);                                                                                        
                                                                                                
                                                                           
                                                                               
