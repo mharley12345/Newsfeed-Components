@@ -65,16 +65,20 @@
 }
 .article .expandButton {
   position: absolute;
+  border-radius: 4px;
+  border: 2px solid darkblue;
   bottom: 0;
   left: 50%;
   font-size: 12px;
   color: grey;
   cursor: pointer;
   transform: translate(-50%);
-  background-color: white;
+  background-color: red;
+  width: 75px;
+  text-align: center;
 }
 .article-open {
-  height: 400px;
+  height: auto;
 }
 .menu-button {
   position: absolute;
