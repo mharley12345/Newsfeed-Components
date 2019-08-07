@@ -112,3 +112,78 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+const articles = document.querySelector('.articles')
+
+// Create an article for each object in data object
+data.forEach(article => {
+  articles.appendChild(createArticle(data))
+})
+
+// Function to create a new article for each sets of data in inputted object array
+function createArticle (data) {
+  // Define new elements
+  const article = document.createElement('div')
+  const title = document.createElement('h2')
+  const date = document.createElement('p')
+  const paraOne = document.createElement('p')
+  const paraTwo = document.createElement('p')
+  const paraThree = document.createElement('p')
+  const span = document.createElement('span')
+  const Btn = document.createElement('button')
+
+  // Structure of elements
+  document.appendChild(article)
+  article.appendChild(title)
+  article.appendChild(span)
+  article.appendChild(date)
+  article.appendChild(paraOne)
+  article.appendChild(paraTwo)
+  article.appendChild(paraThree)
+  article.appendChild(Btn)
+
+  // Setting up class names
+  article.classList.add('article')
+  date.classList.add('date')
+  expandBtn.classList.add('expandButton')
+  readBtn.classList.add('close')
+
+  // Inserting text
+  title.textContent = artData.title
+  date.textContent = artData.date
+  paraOne.textContent = artData.firstParagraph
+  paraTwo.textContent = artData.secondParagraph
+  paraThree.textContent = artData.thirdParagraph
+  expandBtn.textContent = 'expand'
+  readBtn.textContent = 'Read'
+
+  // Button event
+  expandBtn.addEventListener('click', () => {
+    // Toggle open
+    article.classList.toggle('article-open')
+
+    // Change name of button depending on state
+    if (expandBtn.textContent === 'expand') expandBtn.textContent = 'collapse'
+    else expandBtn.textContent = 'expand'
+  })
+
+  readBtn.addEventListener('click', () => {
+    article.classList.add('article-read')
+  })
+
+  return article
+}
+
+function createNewArticle(userTitle, userDate, userFirst, userSecond, userThird) {
+  const newData = []
+  newData.push({
+    title:userTitle,
+    date:userDate,
+    firstParagraph:userFirst,
+    secondParagraph:userSecond,
+    thirdParagraph:userThird
+  })
+  
+  newData.forEach(article => {
+    articles.appendChild(createArticle(article))
+  })
+}
