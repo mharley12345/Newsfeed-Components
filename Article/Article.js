@@ -116,11 +116,11 @@ const articles = document.querySelector('.articles')
 
 // Create an article for each object in data object
 data.forEach(article => {
-  articles.appendChild(createArticle(data))
+  articles.appendChild(createArticle(article))
 })
 
 // Function to create a new article for each sets of data in inputted object array
-function createArticle (data) {
+function createArticle (artData) {
   // Define new elements
   const article = document.createElement('div')
   const title = document.createElement('h2')
@@ -128,18 +128,17 @@ function createArticle (data) {
   const paraOne = document.createElement('p')
   const paraTwo = document.createElement('p')
   const paraThree = document.createElement('p')
-  const span = document.createElement('span')
-  const Btn = document.createElement('button')
+  const expandBtn = document.createElement('span')
+  const readBtn = document.createElement('button')
 
   // Structure of elements
-  document.appendChild(article)
   article.appendChild(title)
-  article.appendChild(span)
+  article.appendChild(readBtn)
   article.appendChild(date)
   article.appendChild(paraOne)
   article.appendChild(paraTwo)
   article.appendChild(paraThree)
-  article.appendChild(Btn)
+  article.appendChild(expandBtn)
 
   // Setting up class names
   article.classList.add('article')
