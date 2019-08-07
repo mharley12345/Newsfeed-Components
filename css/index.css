@@ -109,6 +109,14 @@
 .menu--open {
   display: block;
 }
+.header:hover {
+  background-color: black;
+  color: red;
+}
+.menu--open:hover {
+  background-color: black;
+  color: red;
+}
 html,
 body {
   margin: 0;

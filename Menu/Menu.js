@@ -64,3 +64,20 @@ function sideMenu(navItems) {
 
   return menu
 }
+
+// Stretch GS animation 
+
+TweenMax.to(".menu-button", 5, {x:1220, y:4, scale:2, skewX:45, rotation:180});                                               
+                                                                                                           
+                                                                                                          
+                                                                                                        
+                                                                                                     
+setTimeout(() => {                                                                                  
+  TweenMax.to(".menu-button", 5, {x:46, y:4, scale:2, skewX:45, rotation:180});                    
+                                                                                                                                            
+}, 14000);                                                                                        
+                                                                                               
+                                                                          
+                                                                              
+                                                                             
+                                                                            
