@@ -112,3 +112,79 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+const articles = document.querySelector('.articles')
+
+// Create an article for each object in data object
+data.forEach(article => {
+  articles.appendChild(createArticle(article))
+})
+
+// Function to create a new article for each sets of data in inputted object array
+function createArticle (artData) {
+  // Define new elements
+  const article = document.createElement('div')
+  const title = document.createElement('h2')
+  const date = document.createElement('p')
+  const paraOne = document.createElement('p')
+  const paraTwo = document.createElement('p')
+  const paraThree = document.createElement('p')
+  const expandBtn = document.createElement('span')
+  const readBtn = document.createElement('button')
+
+  // Structure of elements
+  article.appendChild(title)
+  // article.appendChild(readBtn)
+  article.appendChild(date)
+  article.appendChild(paraOne)
+  article.appendChild(paraTwo)
+  article.appendChild(paraThree)
+  article.appendChild(expandBtn)
+
+  // Setting up class names
+  article.classList.add('article')
+  date.classList.add('date')
+  expandBtn.classList.add('expandButton')
+  readBtn.classList.add('close')
+
+  // Inserting text
+  title.textContent = artData.title
+  date.textContent = artData.date
+  paraOne.textContent = artData.firstParagraph
+  paraTwo.textContent = artData.secondParagraph
+  paraThree.textContent = artData.thirdParagraph
+  expandBtn.textContent = 'expand'
+  readBtn.textContent = 'Read'
+
+  // Button event
+  expandBtn.addEventListener('click', () => {
+    // Toggle open
+    article.classList.toggle('article-open')
+
+    // Change name of button depending on state
+    if (expandBtn.textContent === 'expand') expandBtn.textContent = 'collapse'
+    else expandBtn.textContent = 'expand'
+  })
+
+  readBtn.addEventListener('click', () => {
+    article.classList.add('article-read')
+  })
+
+  return article
+}
+
+function createNewArticle(userTitle, userDate, userFirst, userSecond, userThird) {
+  const newData = []
+  newData.push({
+    title:userTitle,
+    date:userDate,
+    firstParagraph:userFirst,
+    secondParagraph:userSecond,
+    thirdParagraph:userThird
+  })
+  
+  newData.forEach(article => {
+    articles.appendChild(createArticle(article))
+  })
+}
+createNewArticle('MyArticle','Aug 7,2019','ParagrLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque aliquam vestibulum morbi blandit cursus. Quis auctor elit sed vulputate mi sit amet mauris. Viverra mauris in aliquam sem. Faucibus purus in massa tempor nec feugiat. Velit sed ullamcorper morbi tincidunt. Enim facilisis gravida neque convallis a cras semper. Ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at. Adipiscing tristique risus nec feugiat in fermentum posuere. Suspendisse interdum consectetur libero id faucibus nisl tincidunt. Eget mauris pharetra et ultrices neque ornare aenean euismod elementum. Arcu risus quis varius quam quisque id diam vel. Ridiculus mus mauris vitae ultricies leo integer. Aliquam ultrices sagittis orci a scelerisque purus semper eget duis.aph 1','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque aliquam vestibulum morbi blandit cursus. Quis auctor elit sed vulputate mi sit amet mauris. Viverra mauris in aliquam sem. Faucibus purus in massa tempor nec feugiat. Velit sed ullamcorper morbi tincidunt. Enim facilisis gravida neque convallis a cras semper. Ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at. Adipiscing tristique risus nec feugiat in fermentum posuere. Suspendisse interdum consectetur libero id faucibus nisl tincidunt. Eget mauris pharetra et ultrices neque ornare aenean euismod elementum. Arcu risus quis varius quam quisque id diam vel. Ridiculus mus mauris vitae ultricies leo integer. Aliquam ultrices sagittis orci a scelerisque purus semper eget duis','Ac turpis egestas maecenas pharetra convallis posuere morbi. Id interdum velit laoreet id donec. Purus faucibus ornare suspendisse sed. Diam volutpat commodo sed egestas egestas fringilla. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Integer malesuada nunc vel risus commodo. In massa tempor nec feugiat nisl pretium. Ultricies leo integer malesuada nunc. Mi tempus imperdiet nulla malesuada pellentesque. Diam quis enim lobortis scelerisque fermentum dui faucibus in. Magna sit amet purus gravida. Pretium aenean pharetra magna ac placerat vestibulum lectus. Est sit amet facilisis magna etiam tempor orci eu. Eu mi bibendum neque egestas congue quisque egestas. Purus in mollis nunc sed id semper risus in hendrerit. Justo nec ultrices dui sapien eget mi proin sed libero. Ridiculus mus mauris vitae ultricies leo integer malesuada nunc vel. Pellentesque habitant morbi tristique senectus et. Id aliquet risus feugiat in ante metus dictum.')
+createNewArticle('My Second Article','Aug 7, 2019',"It's so important to realize that every time you get upset, it drains your emotional energy. Losing your cool makes you tired. Getting angry a lot messes with your health.'Joyce Meyer'")
